@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Matching Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+     <h2>Memory Matching Game</h2>
+    <div class="hide" id="congo">
+        <p class="win">You Finished the Game in 20 moves</p>
+        <button class="reset restart" onclick="reset()">Restart</button>
+    </div> 
+   
+
+    <div class="game">
+        <button num="0" class="cell transform"></button>
+        <button num="1" class="cell"></button>
+        <button num="2" class="cell"></button>
+        <button num="3" class="cell"></button>
+        <button num="4" class="cell"></button>
+        <button num="5" class="cell"></button>
+        <button num="6" class="cell"></button>
+        <button num="7" class="cell"></button>
+        <button num="8" class="cell"></button>
+        <button num="9" class="cell"></button>
+        <button num="10" class="cell"></button>
+        <button num="11" class="cell"></button>
+        <button num="12" class="cell"></button>
+        <button num="13" class="cell"></button>
+        <button num="14" class="cell"></button>
+        <button num="15" class="cell"></button>
+    </div>
+    <div class="result"><p class="msg">Moves: 0</p>
+    <p class="best">Best: 0</p></div>
+    <div class="result">
+    <button class="reset" onclick="reset()">Reset</button>
+    <button class="reset rebest" onclick="resetbestscore()">Clear Best</button>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
