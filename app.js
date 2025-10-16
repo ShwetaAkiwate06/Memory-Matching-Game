@@ -70,17 +70,24 @@ boxes.forEach((box) => {
             }
         }
         document.querySelector(".msg").innerHTML = `Moves: ${moves}`;
+        
         if (matchedpairs == 8) {
-            const bestScore = parseInt(localStorage.getItem('bestScore') || Infinity);
+            let newRecord = false;
+            const bestScore = parseInt(localStorage.getItem('bestScore')) || Infinity; //here infinity is not enclosed int the brackets beacuse This ensures that if there’s no stored score, it defaults to Infinity as a number, not a string.
             if (moves < bestScore) {
                 localStorage.setItem('bestScore', moves);
+                newRecord = true;
             }
             document.querySelector(".best").innerHTML = `Best: ${localStorage.getItem('bestScore')}`;
 
             document.getElementById("congo").classList.remove("hide");
-            document.getElementsByClassName("win")[0].innerHTML = `Congratulations!! You Finished the Game in ${moves} Moves.<br> Best: ${bestScore}.`
+            const updatedBest = localStorage.getItem('bestScore');
 
-
+            let message = `Congratulations!! You Finished the Game in ${moves} Moves.<br> Best: ${updatedBest}.`
+            if (newRecord) {
+                message += `<br><span class="new-record">🎉 New Record!</span>`;
+            }
+            document.getElementsByClassName("win")[0].innerHTML = message;
         }
 
     })
@@ -107,9 +114,21 @@ function reset() {
     enable();
 }
 window.onload = () => {
+
     document.querySelector(".best").innerHTML = `Best: ${localStorage.getItem("bestScore") || "--"}`;
 };
 function resetbestscore() {
+    const confirmReset = confirm("Are you sure you want to clear your Best Score? This action cannot be undone.");
+    if (!confirmReset) return; // cancel if user clicks 'No'
+
     localStorage.removeItem('bestScore');
-    document.querySelector(".best").innerHTML = `Best: 0`;
+    document.querySelector(".best").innerHTML = `Best: --`;
+
+    // Optional visual feedback
+    document.querySelector(".rebest").innerText = "Cleared!";
+    setTimeout(() => {
+        document.querySelector(".rebest").innerText = "Clear Best";
+    }, 1500);
 }
+
+    
