@@ -14,3 +14,5 @@ yarn-error.log*
 # OS-specific junk
 .DS_Store
 Thumbs.db
+
+workflow.txt
