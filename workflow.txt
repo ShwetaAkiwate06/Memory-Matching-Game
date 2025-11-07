@@ -95,8 +95,7 @@ memory-game/
 * Store MongoDB connection string:
 
   ```
-  MONGO_URI=mongodb+srv://username:password@cluster0.mongodb.net/memorygame
-  PORT=3000
+
   ```
 * Never push this to GitHub.
 
